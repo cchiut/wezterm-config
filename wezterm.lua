@@ -1,8 +1,8 @@
-local font = require('font')
-local config = {}
+local wezterm = require('wezterm')
 
-font.apply_to_config(config)
+local config = wezterm.config_builder()
 
+-- window
 config.color_scheme = 'Tokyo Night (Gogh)'
 config.text_background_opacity = 0.9
 config.window_background_opacity = 0.9
@@ -12,5 +12,11 @@ config.window_padding = {
   top = '2',
   bottom = '2',
 }
+
+-- font
+config.font = wezterm.font('CodeNewRoman Nerd Font')
+config.font_size = 14.8
+config.line_height = 1.1
+config.use_cap_height_to_scale_fallback_fonts = true
 
 return config
