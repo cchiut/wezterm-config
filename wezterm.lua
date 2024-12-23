@@ -24,8 +24,8 @@ config.color_scheme = scheme_for_appearance(get_appearance())
 config.window_padding = {
   left = '1cell',
   right = '1cell',
-  top = '4',
-  bottom = '4',
+  top = '0',
+  bottom = '0',
 }
 
 -- tab
@@ -38,12 +38,11 @@ config.font = wezterm.font_with_fallback {
   'Noto Color Emoji',
   { family = 'Symbols Nerd Font Mono', scale = 0.75 }
 }
-config.line_height = 1.1
 config.use_cap_height_to_scale_fallback_fonts = true
 
 if wezterm.target_triple == 'aarch64-apple-darwin' then
   -- font
-  config.font_size = 16
+  config.font_size = 14
 end
 
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
