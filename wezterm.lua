@@ -28,26 +28,32 @@ config.window_padding = {
   bottom = '0',
 }
 
--- tab
-config.hide_tab_bar_if_only_one_tab = true
-
 -- font
-config.font = wezterm.font_with_fallback {
-  'CodeNewRoman Nerd Font',
-  'JetBrains Mono',
-  'Noto Color Emoji',
-  { family = 'Symbols Nerd Font Mono', scale = 0.75 }
-}
 config.use_cap_height_to_scale_fallback_fonts = true
 
 if wezterm.target_triple == 'aarch64-apple-darwin' then
   -- font
+  config.font = wezterm.font_with_fallback {
+    'CodeNewRoman Nerd Font',
+    'JetBrains Mono',
+    'Noto Color Emoji',
+    { family = 'Symbols Nerd Font Mono', scale = 0.75 }
+  }
   config.font_size = 14
+  
+  -- tab
+  config.hide_tab_bar_if_only_one_tab = true
 end
 
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
   -- font
-  config.font_size = 11
+  config.font = wezterm.font_with_fallback {
+    'Cascadia Code',	
+    'JetBrains Mono',
+    'Noto Color Emoji',
+    { family = 'Symbols Nerd Font Mono', scale = 0.75 }
+  }
+  config.font_size = 12
 
   -- WSL
   config.wsl_domains = {
@@ -56,8 +62,17 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
       distribution = 'Debian',
     }
   }
-
-  config.default_domain = 'WSL:Debian'
+  
+  -- launch menu
+  config.default_prog = { 'C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe', '-NoLogo' }
+  
+  config.launch_menu = {
+    {
+      label = 'Debian WSL',
+      domain = { DomainName = 'WSL:Debian' },
+    }
+  }
+  
 end
 
 return config
