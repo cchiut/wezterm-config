@@ -32,6 +32,9 @@ config.window_padding = {
 config.use_cap_height_to_scale_fallback_fonts = true
 
 if wezterm.target_triple == 'aarch64-apple-darwin' then
+  config.window_background_opacity = 0.9
+  config.macos_window_background_blur = 45
+
   -- font
   config.font = wezterm.font_with_fallback {
     'CodeNewRoman Nerd Font',
@@ -46,6 +49,9 @@ if wezterm.target_triple == 'aarch64-apple-darwin' then
 end
 
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
+  config.window_background_opacity = 0
+  config.win32_system_backdrop = 'Tabbed'
+
   -- font
   config.font = wezterm.font_with_fallback {
     'Cascadia Code',	
