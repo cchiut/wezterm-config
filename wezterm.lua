@@ -21,19 +21,36 @@ end
 
 -- window
 config.color_scheme = scheme_for_appearance(get_appearance())
-config.window_padding = {
-  left = '1cell',
-  right = '1cell',
-  top = '0',
-  bottom = '0',
-}
 
 -- font
 config.use_cap_height_to_scale_fallback_fonts = true
 
+if wezterm.target_triple == 'x86_64-unknown-linux-gnu' then
+  config.window_background_opacity = 0.9
+
+  -- font
+  config.font = wezterm.font_with_fallback {
+    'CaskaydiaCove Nerd Font',
+    'JetBrains Mono',
+    'Noto Color Emoji',
+    { family = 'Symbols Nerd Font Mono', scale = 0.75 }
+  }
+  config.font_size = 14
+  
+  -- tab
+  config.hide_tab_bar_if_only_one_tab = true
+end
+
 if wezterm.target_triple == 'aarch64-apple-darwin' then
   config.window_background_opacity = 0.9
   config.macos_window_background_blur = 45
+
+  config.window_padding = {
+    left = '1cell',
+    right = '1cell',
+    top = '0',
+    bottom = '0',
+  }
 
   -- font
   config.font = wezterm.font_with_fallback {
@@ -51,6 +68,13 @@ end
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
   config.window_background_opacity = 0
   config.win32_system_backdrop = 'Tabbed'
+
+  config.window_padding = {
+    left = '1cell',
+    right = '1cell',
+    top = '0',
+    bottom = '0',
+  }
 
   -- font
   config.font = wezterm.font_with_fallback {
