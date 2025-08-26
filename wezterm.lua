@@ -27,16 +27,24 @@ config.use_cap_height_to_scale_fallback_fonts = true
 
 if wezterm.target_triple == 'x86_64-unknown-linux-gnu' then
   config.window_background_opacity = 0.9
+  config.color_scheme = 'Catppuccin Mocha (Gogh)'
+  config.enable_wayland = true
 
+  config.window_padding = {
+    left = '1cell',
+    right = '1cell',
+    top = '4px',
+    bottom = '0',
+  }
   -- font
   config.font = wezterm.font_with_fallback {
-    'CaskaydiaCove Nerd Font',
-    'JetBrains Mono',
+    'DejaVuSansM Nerd Font',
+    'JetBrains Mono Nerd Font',
     'Noto Color Emoji',
     { family = 'Symbols Nerd Font Mono', scale = 0.75 }
   }
-  config.font_size = 14
-  
+  config.font_size = 12
+
   -- tab
   config.hide_tab_bar_if_only_one_tab = true
 end
