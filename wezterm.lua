@@ -19,7 +19,6 @@ local function scheme_for_appearance(appearance)
   end
 end
 
--- window
 config.color_scheme = scheme_for_appearance(get_appearance())
 
 -- font
@@ -55,19 +54,19 @@ if wezterm.target_triple == 'aarch64-apple-darwin' then
 
   config.window_padding = {
     left = '1cell',
-    right = '1cell',
-    top = '0',
+    right = '0.5cell',
+    top = '12px',
     bottom = '0',
   }
 
   -- font
   config.font = wezterm.font_with_fallback {
-    'CodeNewRoman Nerd Font',
+    'DejaVuSansM Nerd Font',
     'JetBrains Mono',
     'Noto Color Emoji',
     { family = 'Symbols Nerd Font Mono', scale = 0.75 }
   }
-  config.font_size = 14
+  config.font_size = 12.8
   
   -- tab
   config.hide_tab_bar_if_only_one_tab = true
